@@ -1,0 +1,101 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Add Form Page</title>
+        <script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+<center><h2>Dynamic Field Generation-jQuery</h2></center>
+
+
+        <form action="" method="post">
+            <div id="items">
+                <div class="form-group">
+                    <label>Form Title</label><input type="text" name="title" required="required" class="form-control" size="10"/>
+
+                </div>
+
+                <div class="form-group">
+                    <label>Form Description</label> <textarea  name="desc"  rows="4" cols="15" class="form-control"></textarea>
+
+                </div>
+
+                <div class="checkbox">
+                  Status  <label><input type="checkbox" value="">Active</label>
+                </div>
+
+                <div class="form-group">
+                    <label>User Id</label>
+                    <select name="userid" class="form-control">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+
+            <br>
+            <h5>  Field Setting</h5>
+            <hr>
+            <div id="field_sett" >
+                <div class="form-group">
+
+                    <label>Field</label>
+                    <select name="" class="form-control">
+                        <option value="">FirstName</option>
+                        <option value="">Last Name</option>
+                        <option value="">Gender</option>
+                        <option value="">Age</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Display Order</label>
+                    <input type="text" name="display_order" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label>Element Type</label>
+                    <select name="" class="form-control">
+                        <option value="">TextBox</option>
+                        <option value="">Radio Buttton</option>
+                        <option value="">TextArea</option>
+                        <option value="">CheckBox</option>
+                    </select>
+                </div>
+                <button type="button" id="add-field">Add More Fields</button>
+            </div>
+
+            <br>
+            <div style="margin-left:200px">
+                <button type="submit">Send</button>
+                <button type="submit">Cancel</button>
+            </div>
+        </form>
+
+        <script>
+
+            $(document).ready(function () {
+                $("#add-field").click(function () {
+                    $("#field_sett").append('<hr/><div>  <label>Field</label> <select name=""> <option value="">FirstName</option><option value="">Last Name</option><option value="">Gender</option> <option value="">Age</option></select><div><label>Display Order</label><input type="text" name="display_order"></div><div><label>Element Type</label><select name=""><option value="">TextBox</option><option value="">Radio Buttton</option><option value="">TextArea</option><option value="">CheckBox</option> </select></div>  <button type="button" id="add-more-field">Add More Fields</button><button  type="button" id="delete">Remove Field</button>');
+
+                });
+
+                $("body").on("click", "#delete", function () {
+                    $(this).parent('div').remove();
+                });
+
+                $("body").on("click", "#add-more-field", function () {
+                    $("#field_sett").append('<hr/><div>  <label>Field</label> <select name=""> <option value="">FirstName</option><option value="">Last Name</option><option value="">Gender</option> <option value="">Age</option></select><div><label>Display Order</label><input type="text" name="display_order"></div><div><label>Element Type</label><select name=""><option value="">TextBox</option><option value="">Radio Buttton</option><option value="">TextArea</option><option value="">CheckBox</option> </select></div>  <button type="button" id="add-more-field">Add More Fields</button><button  type="button" id="delete">Remove Field</button>');
+                });
+
+            });
+
+        </script>
+
+    </body>
+</html>
